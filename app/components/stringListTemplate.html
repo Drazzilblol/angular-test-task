@@ -1,0 +1,6 @@
+<ul id="string-list">
+    <li class="item" ng-repeat="string in $ctrl.strings track by $index">
+        <span class="content-left">{{string | numbersFilter}}</span>
+        <input class="btn-right-delete" type="button" title="delete" value="Delete" ng-click="$ctrl.deleteItem($index)">
+    </li>
+</ul>

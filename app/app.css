@@ -1,0 +1,66 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+}
+ul {
+    list-style-type: none;
+    width: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 500px;
+}
+
+li:hover {
+    background: #eee;
+    cursor: pointer;
+}
+
+.container {
+    margin-top: 5%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 10px;
+    background-color: silver;
+}
+
+.btn-right-add {
+    float: right;
+    padding: 2px;
+}
+
+.btn-right-delete {
+    float: right;
+    padding: 2px;
+}
+
+.input-left {
+    float: left;
+    width: 80%;
+}
+
+.input-area {
+    height: 20px;
+    padding: 10px;
+    background-color: lightgray;
+    margin-bottom: 10px;
+}
+
+.content-left {
+    float: left;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item {
+    margin-bottom: 2px;
+    padding: 10px;
+    overflow: hidden;
+    background-color: lightgray;
+}
