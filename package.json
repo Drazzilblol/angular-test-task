@@ -16,7 +16,7 @@
     "angular-mocks": "^1.7.5",
     "cpx": "^1.5.0",
     "http-server": "^0.11.1",
-    "jasmine-core": "^3.3.0", ,
+    "jasmine-core": "^3.3.0", 
     "protractor": "^5.4.1"
   },
   "scripts": {
