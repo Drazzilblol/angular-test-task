@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module('listApp')
-    .filter('numbersFilter', function () {
+    .filter('numbersFilter', function ($filter) {
     return function (input) {
         let arr = input.split('');
 
@@ -9,7 +9,7 @@ angular
             return !isNaN(+element);
         });
 
-        return filteredArray.join('') ? filteredArray.join(''): "String does not contains numbers"  ;
+        return filteredArray.join('') ? filteredArray.join(''): $filter('translate')('MESSAGE')  ;
     };
 });
 

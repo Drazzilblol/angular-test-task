@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Test List App</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-translate/2.18.1/angular-translate.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-translate/2.18.1/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
   <script src="app.js"></script>
   <script src="filters/getNumbersFilter.js"></script>
   <script src="components/stringListModule.js"></script>
@@ -14,7 +16,11 @@
   <link rel="stylesheet" href="app.css">
 
 </head>
-<body>
+<body ng-controller="Ctrl">
+<select class="lang-select" ng-init="selected = 'en'" ng-model="selected" ng-change="changeLanguage(selected)">
+  <option value="en">English</option>
+  <option selected value="ru">Русский</option>
+</select>
 <strings-list-controller class="container"></strings-list-controller>
 
 </body>

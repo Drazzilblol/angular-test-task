@@ -64,3 +64,9 @@ li:hover {
     overflow: hidden;
     background-color: lightgray;
 }
+
+.lang-select {
+    margin: 5px;
+    padding: 5px;
+    float: right;
+}
