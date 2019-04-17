@@ -1,0 +1,10 @@
+{
+  "en": {
+    "locale": "en",
+    "name": "English"
+  },
+  "ru": {
+    "locale": "ru",
+    "name": "Русский"
+  }
+}

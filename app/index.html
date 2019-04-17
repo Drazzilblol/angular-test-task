@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html ng-app="listApp"  lang="eng">
+<html lang="eng">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Test List App</title>
-  <script src="lib/angular/angular.min.js"></script>
-  <script src="lib/angular-translate/dist/angular-translate.min.js"></script>
-  <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
-  <script src="app.js"></script>
-  <script src="filters/getNumbersFilter.js"></script>
-  <script src="components/stringListModule.js"></script>
-  <script src="components/stringAddModule.js"></script>
-  <script src="components/stringListControllerModule.js"></script>
-  <link rel="stylesheet" href="app.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Test List App</title>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-translate/dist/angular-translate.min.js"></script>
+    <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+
+    <script src="app.js"></script>
+    <script src="appConfig.js"></script>
+    <script src="filters/numbersFilter.js"></script>
+    <script src="components/language/languageController.js"></script>
+    <script src="components/string-list/stringListController.js"></script>
+    <script src="components/string-add/stringAddController.js"></script>
+    <script src="components/string-list-container/stringListContainerController.js"></script>
+
+    <link rel="stylesheet" href="app.css">
 
 </head>
-<body ng-controller="Ctrl">
-<select class="lang-select" ng-init="selected = 'en'" ng-model="selected" ng-change="changeLanguage(selected)">
-  <option value="en">English</option>
-  <option selected value="ru">Русский</option>
-</select>
+<body ng-app="listApp">
+<language></language>
 <strings-list-controller class="container"></strings-list-controller>
-
 </body>
 </html>
