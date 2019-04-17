@@ -4,12 +4,8 @@ app.component('stringsListController', {
     controller: function stringListController() {
         this.strings = [];
 
-        this.addItem = function (string) {
-            this.strings.push(string);
-        };
+        this.addItem = string =>  this.strings.push(string);
 
-        this.deleteItem = function (index) {
-            this.strings.splice(index, 1);
-        }
+        this.deleteItem = index => this.strings.splice(index, 1);
     },
 });

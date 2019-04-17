@@ -4,9 +4,7 @@ app.filter('numbersFilter', function () {
         if (input === undefined || input === "") return 'MESSAGE';
 
         let filteredArray = input.split('')
-            .filter(function (element) {
-                return !isNaN(+element);
-            });
+            .filter(element => !isNaN(+element));
 
         return filteredArray.length ? filteredArray.join('') : 'MESSAGE';
     };
