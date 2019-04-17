@@ -15,12 +15,14 @@
   "devDependencies": {
     "angular-mocks": "^1.7.5",
     "cpx": "^1.5.0",
+    "gulp": "^4.0.0",
+    "gulp-inject": "^5.0.2",
     "http-server": "^0.11.1",
     "jasmine-core": "^3.3.0",
     "protractor": "^5.4.1"
   },
   "scripts": {
-    "postinstall": "npm run copy-libs",
+    "postinstall": "npm run copy-libs && gulp inject",
     "update-deps": "npm update",
     "postupdate-deps": "npm run copy-libs",
     "copy-libs": "cpx \"node_modules/{angular,angular-*,html5-boilerplate/dist}/**/*\" app/lib -C",
