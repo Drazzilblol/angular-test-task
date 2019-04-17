@@ -1,5 +1,9 @@
 {
   "BUTTON_ADD": "Add",
   "BUTTON_DELETE": "Delete",
-  "MESSAGE": "String does not contains numbers"
+  "MESSAGE": "String does not contains numbers",
+  "LANGUAGES": {
+    "en": "English",
+    "ru": "Russian"
+  }
 }
