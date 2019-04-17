@@ -1,7 +1,7 @@
-'use strict';
-app.component('stringAdd', {
+"use strict";
+app.component("stringAdd", {
     bindings: {
-        onAdd: '&'
+        onAdd: "&"
     },
-    templateUrl: 'components/string-add/stringAddTemplate.html',
+    templateUrl: "components/string-add/stringAddTemplate.html",
 });

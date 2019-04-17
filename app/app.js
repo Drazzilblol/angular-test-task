@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-let app = angular.module('listApp', ['pascalprecht.translate']);
+let app = angular.module("listApp", ["pascalprecht.translate"]);
 
 
 

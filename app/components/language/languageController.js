@@ -1,6 +1,6 @@
-'use strict';
-app.component('language', {
-    templateUrl: 'components/language/languageTemplate.html',
+"use strict";
+app.component("language", {
+    templateUrl: "components/language/languageTemplate.html",
     controller: function languageController($translate, $http) {
         this.selected = "en";
         this.changeLanguage = function () {
