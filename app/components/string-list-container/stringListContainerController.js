@@ -1,5 +1,5 @@
 "use strict";
-app.component("stringsListController", {
+app.component("stringsListContainer", {
     templateUrl: "components/string-list-container/stringListContainerTemplate.html",
     controller: function stringListController() {
         this.strings = [];
