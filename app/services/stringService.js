@@ -1,10 +1,18 @@
 app.factory('stringService', function () {
-    let string = "";
     let service = {};
+    let callback;
 
-    service.getString = () => string;
+    service.notifyChanges = str => {
+        callback(str)
+    };
 
-    service.setString = str => string = str;
+    service.registerObserver = cb => {
+        callback = cb;
+    };
+
+    service.unregisterObserver = () => {
+        callback = null;
+    };
 
     return service;
 });

@@ -6,12 +6,10 @@ app.component('stringsList', {
         this.strings = [];
 
         this.onDelete = index => this.strings.splice(index, 1);
-
-        this.$doCheck = function () {
-            if (stringService.getString() !== "") {
-                this.strings.push(stringService.getString())
-                stringService.setString("")
-            }
+        stringService.registerObserver(str => this.strings.push(str));
+        
+        this.$onDestroy = function () {
+            stringService.unregisterObserver()
         }
     }]
 });
