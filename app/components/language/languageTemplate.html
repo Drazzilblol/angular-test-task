@@ -1,3 +1,3 @@
 <select class="lang-select" ng-model="$ctrl.selected" ng-change="$ctrl.changeLanguage()">
-    <option ng-repeat="language in $ctrl.languages" value="{{language.locale}}">{{"LANGUAGES." + language.locale | translate}}</option>
+    <option ng-repeat="language in $ctrl.languages" value="{{language}}">{{"LANGUAGES." + language | translate}}</option>
 </select>
