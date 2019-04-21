@@ -1,5 +1,6 @@
 "use strict";
-app.filter("numbersFilter", function () {
+
+module.exports = function numbersFilter() {
     return function (input) {
         if (input === undefined || input === "") return "MESSAGE";
 
@@ -8,5 +9,7 @@ app.filter("numbersFilter", function () {
 
         return filteredArray.length ? filteredArray.join("") : "MESSAGE";
     };
-});
+};
+
+
 

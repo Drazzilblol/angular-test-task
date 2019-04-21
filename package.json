@@ -6,28 +6,20 @@
   "license": "MIT",
   "dependencies": {
     "angular": "^1.7.5",
-    "angular-loader": "^1.7.5",
-    "angular-route": "^1.7.5",
     "angular-translate": "^2.18.1",
     "angular-translate-loader-static-files": "^2.18.1"
   },
   "devDependencies": {
-    "angular-mocks": "^1.7.5",
-    "cpx": "^1.5.0",
-    "gulp": "^4.0.0",
-    "gulp-inject": "^5.0.2",
-    "http-server": "^0.11.1",
+    "copy-webpack-plugin": "^5.0.2",
+    "css-loader": "^2.1.1",
+    "html-loader": "^0.5.5",
     "jasmine-core": "^3.3.0",
-    "protractor": "^5.4.1"
+    "protractor": "^5.4.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0"
   },
   "scripts": {
-    "postinstall": "npm run copy-libs && gulp inject",
-    "copy-libs": "cpx \"node_modules/{angular,angular-*}/**/*\" app/lib -C",
-    "prestart": "npm install",
-    "start": "http-server -a localhost -p 8000 -c-1 ./app",
-    "pretest": "npm run update-webdriver",
-    "test": "protractor e2e-tests/protractor.conf.js",
-    "preupdate-webdriver": "npm install",
-    "update-webdriver": "webdriver-manager update --gecko false"
+    "build": "webpack"
   }
 }

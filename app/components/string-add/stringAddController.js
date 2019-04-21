@@ -1,7 +1,8 @@
 "use strict";
-app.component("stringAdd", {
+
+module.exports = {
     bindings: {
-        onAdd: "&"
+        onAdd: "&",
     },
-    templateUrl: "components/string-add/stringAddTemplate.html",
-});
+    template: require("./stringAddTemplate.html"),
+};

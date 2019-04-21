@@ -1,6 +1,6 @@
 "use strict";
 
-app.config(function ($translateProvider) {
+module.exports = function ($translateProvider) {
     $translateProvider
         .useStaticFilesLoader({
             prefix: "locales/locale-",
@@ -8,6 +8,8 @@ app.config(function ($translateProvider) {
         })
         .useSanitizeValueStrategy('sanitizeParameters')
         .preferredLanguage('en');
-});
+};
+
+
 
 

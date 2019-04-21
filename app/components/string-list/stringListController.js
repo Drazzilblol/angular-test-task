@@ -1,8 +1,9 @@
 "use strict";
-app.component("stringsList", {
-    templateUrl: "components/string-list/stringListTemplate.html",
+
+module.exports = {
     bindings: {
         strings: "<",
-        onDelete: "&"
-    }
-});
+        onDelete: "&",
+    },
+    template: require("./stringListTemplate.html"),
+};
