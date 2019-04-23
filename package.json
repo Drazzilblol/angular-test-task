@@ -1,9 +1,7 @@
 {
   "name": "angular-test-app",
-  "private": true,
   "version": "0.0.0",
   "description": "AngularJS test project",
-  "license": "MIT",
   "dependencies": {
     "angular": "^1.7.5",
     "angular-translate": "^2.18.1",
