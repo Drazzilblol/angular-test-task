@@ -7,18 +7,17 @@ import stringListContainer from "./components/string-list-container/stringListCo
 import stringList from "./components/string-list/stringListController";
 import stringAdd from "./components/string-add/stringAddController";
 import language from "./components/language/languageController";
-import numberFilter from "./filters/numbersFilter";
+import filters from "./filters/filtersModule";
 
 import css from "./app.css";
 
 
-angular.module("listApp", ["pascalprecht.translate"])
+angular.module("listApp", ["pascalprecht.translate", "filters"])
     .config(["$translateProvider", config])
     .component("stringAdd", stringAdd)
     .component("stringsListContainer", stringListContainer)
     .component("stringsList", stringList)
-    .component("language", language)
-    .filter('numbersFilter', numberFilter);
+    .component("language", language);
 
 
 
