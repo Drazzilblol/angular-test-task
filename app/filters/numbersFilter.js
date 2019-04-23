@@ -2,7 +2,7 @@
 
 module.exports = function numbersFilter() {
     return function (input) {
-        if (input === undefined || input === "") return "MESSAGE";
+        if (typeof input =="string" || input === "") return "MESSAGE";
 
         let filteredArray = input.split("")
             .filter(element => !isNaN(+element));
