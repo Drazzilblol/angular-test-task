@@ -22,7 +22,7 @@ module.exports = {
     plugins:
         [
             new CopyPlugin([
-                {from: 'app/languagesList/*', to: 'languagesList', flatten: true},
+                {from: 'app/locales/*', to: 'locales', flatten: true},
                 {from: 'app/index.html', to: '', flatten: true},
             ]),
         ],
