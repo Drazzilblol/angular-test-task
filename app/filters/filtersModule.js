@@ -1,7 +1,7 @@
 
-let angular = require('angular');
-let numbersFiter = require('./numbersFilter');
+let angular = require("angular");
+let numbersFilter = require("./numbersFilter");
 
-module.exports = angular.module('filters', [])
-    .filter('numbersFilter', numbersFiter);
+module.exports = angular.module("filters", [])
+    .filter("numbersFilter", numbersFilter);
 
