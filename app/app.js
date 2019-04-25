@@ -1,12 +1,12 @@
 "use strict";
-import angular from "angular";
-import angulartr from "angular-translate";
-import angulartrstaticfiles from "angular-translate-loader-static-files";
-import config from "./appConfig";
-import filters from "./filters/filtersModule";
-import components from "./components/componentsModule";
+let angular = require("angular");
+require("angular-translate");
+require("angular-translate-loader-static-files");
+let config = require("./appConfig");
+require("./filters/filtersModule");
+require("./components/componentsModule");
 
-import css from "./app.css";
+require("./app.css");
 
 angular.module("listApp", ["filters", "components"])
     .config(["$translateProvider", config]);

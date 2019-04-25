@@ -1,5 +1,6 @@
-import components from "../componentsModule"
+"use strict";
 
+import components from "../componentsModule"
 
 describe("language component", () => {
 
@@ -16,14 +17,13 @@ describe("language component", () => {
     };
 
     beforeEach(angular.mock.module("components", ($translateProvider) => {
-            $translateProvider.translations('en', {
+            $translateProvider.translations("en", {
                 LANGUAGES: english
             });
-            $translateProvider.translations('ru', {
+            $translateProvider.translations("ru", {
                 LANGUAGES: russian
             });
             $translateProvider.preferredLanguage("en");
-
         }
     ));
 
@@ -41,7 +41,7 @@ describe("language component", () => {
     });
 
     it("check language change", () => {
-        element.find("select").val("ru").triggerHandler('change');
+        element.find("select").val("ru").triggerHandler("change");
         expect(element.text()).toContain(russian.en);
         expect(element.text()).toContain(russian.ru);
     });

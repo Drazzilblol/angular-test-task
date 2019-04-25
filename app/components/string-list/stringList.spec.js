@@ -1,3 +1,5 @@
+"use strict";
+
 import components from "../componentsModule"
 
 describe("string list component", () => {
@@ -16,8 +18,8 @@ describe("string list component", () => {
     };
 
     beforeEach(angular.mock.module("components", ($translateProvider) => {
-        $translateProvider.translations('en', enLoc);
-        $translateProvider.translations('ru', ruLoc);
+        $translateProvider.translations("en", enLoc);
+        $translateProvider.translations("ru", ruLoc);
         $translateProvider.preferredLanguage("en");
     }));
 
@@ -45,7 +47,7 @@ describe("string list component", () => {
         scope.$digest();
         expect(element.text()).toContain(resultString);
         element.find("button")
-            .triggerHandler('click');
+            .triggerHandler("click");
         expect(scope.onDeleteSpy).toHaveBeenCalledWith(0);
         scope.strings.splice(0, 1);
         scope.$digest();
@@ -65,7 +67,7 @@ describe("string list component", () => {
         scope.strings = ["test"];
         scope.$digest();
         let delButton = element.find("button")
-            .triggerHandler('click');
+            .triggerHandler("click");
         expect(delButton.text()).toContain(enLoc.BUTTON_DELETE);
         $translate.use("ru");
         scope.$digest();

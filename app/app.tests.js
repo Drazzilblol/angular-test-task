@@ -1,5 +1,5 @@
-import "angular";
-import "angular-mocks";
+require("angular");
+require("angular-mocks");
 
 
 const testsContext  = require.context('./', true, /\.spec\.js$/);

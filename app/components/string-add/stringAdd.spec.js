@@ -1,5 +1,6 @@
-import components from "../componentsModule"
+"use strict";
 
+import components from "../componentsModule"
 
 describe("string add component", () => {
 
@@ -9,10 +10,10 @@ describe("string add component", () => {
     let element;
 
     beforeEach(angular.mock.module("components", ($translateProvider) => {
-            $translateProvider.translations('en', {
+            $translateProvider.translations("en", {
                 BUTTON_ADD: "Add",
             });
-            $translateProvider.translations('ru', {
+            $translateProvider.translations("ru", {
                 BUTTON_ADD: "Добавить",
             });
             $translateProvider.preferredLanguage("en");
@@ -32,19 +33,19 @@ describe("string add component", () => {
     it("check add string", () => {
         let testString = "test";
         let input = element.find("input");
-        input.val(testString).triggerHandler('input');
+        input.val(testString).triggerHandler("input");
         element.find("button")
-            .triggerHandler('click');
+            .triggerHandler("click");
         expect(scope.onAddSpy).toHaveBeenCalledWith(testString);
     });
 
     it("check is add button disabled with empty input", () => {
         let button = element.find("button");
-        expect(button.attr('disabled')).toEqual("disabled");
+        expect(button.attr("disabled")).toEqual("disabled");
         let input = element.find("input");
         input.val("          ")
-            .triggerHandler('input');
-        expect(button.attr('disabled')).toEqual("disabled");
+            .triggerHandler("input");
+        expect(button.attr("disabled")).toEqual("disabled");
     });
 
     it("check localization", () => {

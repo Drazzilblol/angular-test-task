@@ -1,3 +1,4 @@
+"use strict"
 import components from "../componentsModule"
 
 describe("string list container component", function () {
@@ -22,9 +23,9 @@ describe("string list container component", function () {
         let stringAdd = element.find("string-add");
         stringAdd.find("input")
             .val(testString)
-            .triggerHandler('input');
+            .triggerHandler("input");
         stringAdd.find("button")
-            .triggerHandler('click');
+            .triggerHandler("click");
         expect(element.find("li")
             .text()).toContain(testString);
     });
@@ -36,11 +37,10 @@ describe("string list container component", function () {
         scope.$digest();
         element.find("li")
             .find("button")
-            .triggerHandler('click')
+            .triggerHandler("click")
         expect(element.find("li")
             .text()).not.toContain(resultString);
     });
-
 });
 
 

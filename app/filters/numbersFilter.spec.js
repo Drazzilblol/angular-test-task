@@ -2,7 +2,7 @@ import filters from "./filtersModule"
 
 beforeEach(angular.mock.module("filters"));
 
-describe('number filter', () => {
+describe("number filter", () => {
 
     let $filter;
 
