@@ -1,4 +1,5 @@
-import filters from "./filtersModule"
+"use strict";
+require("./filtersModule");
 
 beforeEach(angular.mock.module("filters"));
 

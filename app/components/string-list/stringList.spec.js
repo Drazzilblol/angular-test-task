@@ -1,6 +1,5 @@
 "use strict";
-
-import components from "../componentsModule"
+require("../componentsModule");
 
 describe("string list component", () => {
 

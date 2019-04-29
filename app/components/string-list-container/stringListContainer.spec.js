@@ -1,5 +1,5 @@
-"use strict"
-import components from "../componentsModule"
+"use strict";
+require("../componentsModule");
 
 describe("string list container component", function () {
 
@@ -37,7 +37,7 @@ describe("string list container component", function () {
         scope.$digest();
         element.find("li")
             .find("button")
-            .triggerHandler("click")
+            .triggerHandler("click");
         expect(element.find("li")
             .text()).not.toContain(resultString);
     });

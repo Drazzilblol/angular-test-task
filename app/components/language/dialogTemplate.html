@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{"LANGUAGE_MODAL.MESSAGE" | translate}}</h3>
+</div>
+<div class="modal-body">
+    <select class="form-control" ng-model="ctrl.selected">
+        <option ng-repeat="language in ctrl.languages track by $index" value="{{language}}">{{"LANGUAGES." + language | translate}}</option>
+    </select>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ctrl.ok()">{{"LANGUAGE_MODAL.OK" | translate}}</button>
+    <button class="btn btn-warning" type="button" ng-click="ctrl.cancel()">{{"LANGUAGE_MODAL.CANCEL" | translate}}</button>
+</div>

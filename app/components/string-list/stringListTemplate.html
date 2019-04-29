@@ -1,6 +1,8 @@
-<ul>
-    <li class="item" ng-repeat="string in $ctrl.strings track by $index">
-        <span class="content-left">{{string | numbersFilter | translate}}</span>
-        <button class="btn-right-delete" ng-click="$ctrl.onDelete({index: $index})">{{ "BUTTON_DELETE" | translate}}</button>
+<ul class="list-group">
+    <li class="list-group-item content-left" ng-repeat="string in $ctrl.strings track by $index">
+        {{string | numbersFilter | translate}}
+        <button class="btn btn-sm btn-danger float-right" ng-click="$ctrl.onDelete({index: $index})">{{ "BUTTON_DELETE" | translate}}</button>
     </li>
 </ul>
+
+

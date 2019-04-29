@@ -1,7 +1,9 @@
-<div class="input-area">
-    <input class="input-left" type="text" ng-model="text">
-    <button ng-disabled="!text" class="btn-right-add" ng-click="$ctrl.onAdd({text:text})">{{"BUTTON_ADD" | translate}}
-    </button>
+<div class="input-group">
+    <input type="text" class="form-control" ng-model="text" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+        <button ng-disabled="!text" class="btn btn-outline-secondary" ng-click="$ctrl.onAdd({text:text})">{{"BUTTON_ADD" | translate}}
+        </button>
+    </div>
 </div>
 
 
