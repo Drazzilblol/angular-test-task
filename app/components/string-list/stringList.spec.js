@@ -1,8 +1,7 @@
 "use strict";
 require("../componentsModule");
 
-describe("string list component", () => {
-
+describe("string list", () => {
     let $compile;
     let scope;
     let $translate;
@@ -31,46 +30,50 @@ describe("string list component", () => {
         element = $compile(element)(scope);
     }));
 
-    it("check string with numbers", () => {
-        let testStrings = ["t1e2s3t4"];
-        let resultString = "1234";
-        scope.strings = testStrings;
-        scope.$digest();
-        expect(element.text()).toContain(resultString);
-    });
 
-    it("check items deleting", () => {
-        let testStrings = ["12345"];
-        let resultString = "12345";
-        scope.strings = testStrings;
-        scope.$digest();
-        expect(element.text()).toContain(resultString);
-        element.find("button")
-            .triggerHandler("click");
-        expect(scope.onDeleteSpy).toHaveBeenCalledWith(0);
-        scope.strings.splice(0, 1);
-        scope.$digest();
-        expect(element.text()).not.toContain(resultString);
-    });
+    describe("string list component", () => {
 
-    it("check string without numbers", () => {
-        scope.strings = ["test"];
-        scope.$digest();
-        expect(element.text()).toContain(enLoc.MESSAGE);
-        $translate.use("ru");
-        scope.$digest();
-        expect(element.text()).toContain(ruLoc.MESSAGE);
-    });
+        it("check string with numbers", () => {
+            let testStrings = ["t1e2s3t4"];
+            let resultString = "1234";
+            scope.strings = testStrings;
+            scope.$digest();
+            expect(element.text()).toContain(resultString);
+        });
 
-    it("check delete button localization", () => {
-        scope.strings = ["test"];
-        scope.$digest();
-        let delButton = element.find("button")
-            .triggerHandler("click");
-        expect(delButton.text()).toContain(enLoc.BUTTON_DELETE);
-        $translate.use("ru");
-        scope.$digest();
-        expect(delButton.text()).toContain(ruLoc.BUTTON_DELETE);
+        it("check items deleting", () => {
+            let testStrings = ["12345"];
+            let resultString = "12345";
+            scope.strings = testStrings;
+            scope.$digest();
+            expect(element.text()).toContain(resultString);
+            element.find("button")
+                .triggerHandler("click");
+            expect(scope.onDeleteSpy).toHaveBeenCalledWith(0);
+            scope.strings.splice(0, 1);
+            scope.$digest();
+            expect(element.text()).not.toContain(resultString);
+        });
+
+        it("check string without numbers", () => {
+            scope.strings = ["test"];
+            scope.$digest();
+            expect(element.text()).toContain(enLoc.MESSAGE);
+            $translate.use("ru");
+            scope.$digest();
+            expect(element.text()).toContain(ruLoc.MESSAGE);
+        });
+
+        it("check delete button localization", () => {
+            scope.strings = ["test"];
+            scope.$digest();
+            let delButton = element.find("button")
+                .triggerHandler("click");
+            expect(delButton.text()).toContain(enLoc.BUTTON_DELETE);
+            $translate.use("ru");
+            scope.$digest();
+            expect(delButton.text()).toContain(ruLoc.BUTTON_DELETE);
+        });
     });
 });
 
