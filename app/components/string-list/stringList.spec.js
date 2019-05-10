@@ -1,8 +1,6 @@
 "use strict";
-require("../componentsModule");
 
-describe("string list", () => {
-    let $compile;
+describe("string list", function () {
     let scope;
     let $translate;
     let element;
@@ -15,64 +13,77 @@ describe("string list", () => {
         BUTTON_DELETE: "Удалить",
     };
 
-    beforeEach(angular.mock.module("components", ($translateProvider) => {
-        $translateProvider.translations("en", enLoc);
-        $translateProvider.translations("ru", ruLoc);
-        $translateProvider.preferredLanguage("en");
-    }));
+    beforeEach(angular.mock.module("listApp"));
 
-    beforeEach(inject(($rootScope, _$compile_, _$translate_) => {
+    beforeEach(inject(function ($rootScope, $compile, _$translate_) {
         scope = $rootScope.$new();
-        $compile = _$compile_;
         $translate = _$translate_;
         scope.onDeleteSpy = jasmine.createSpy("onDelete");
-        element = angular.element("<strings-list on-delete='onDeleteSpy(0)' strings='strings'/>");
-        element = $compile(element)(scope);
+        element = $compile(angular.element("<strings-list on-delete='onDeleteSpy(index)' strings='strings'/>"))(scope);
     }));
 
+    describe("component", function () {
 
-    describe("string list component", () => {
-
-        it("check string with numbers", () => {
+        it("check string with numbers", function () {
             let testStrings = ["t1e2s3t4"];
             let resultString = "1234";
             scope.strings = testStrings;
+
             scope.$digest();
-            expect(element.text()).toContain(resultString);
+            expect(element.find("li")
+                .find("span")
+                .text()).toBe(resultString);
         });
 
-        it("check items deleting", () => {
-            let testStrings = ["12345"];
+        it("check items deleting", function () {
             let resultString = "12345";
-            scope.strings = testStrings;
+            scope.strings = [resultString];
+
             scope.$digest();
-            expect(element.text()).toContain(resultString);
-            element.find("button")
+            let firstElement = element.find("li");
+            expect(firstElement
+                .find("span")
+                .text()).toBe(resultString);
+
+            firstElement.find("button")
                 .triggerHandler("click");
             expect(scope.onDeleteSpy).toHaveBeenCalledWith(0);
+
             scope.strings.splice(0, 1);
             scope.$digest();
-            expect(element.text()).not.toContain(resultString);
+            expect(element.find("li")
+                .find("span")
+                .text()).not.toBe(resultString);
         });
 
-        it("check string without numbers", () => {
+        it("check string without numbers", function () {
             scope.strings = ["test"];
+
             scope.$digest();
-            expect(element.text()).toContain(enLoc.MESSAGE);
+            let firstElement = element.find("li");
+            expect(firstElement
+                .find("span")
+                .text()).toBe(enLoc.MESSAGE);
+
             $translate.use("ru");
             scope.$digest();
-            expect(element.text()).toContain(ruLoc.MESSAGE);
+            expect(firstElement
+                .find("span")
+                .text()).toBe(ruLoc.MESSAGE);
         });
 
-        it("check delete button localization", () => {
+        it("check delete button localization", function () {
             scope.strings = ["test"];
+
             scope.$digest();
-            let delButton = element.find("button")
+            let delButton = element.find("li")
+                .find("button")
                 .triggerHandler("click");
-            expect(delButton.text()).toContain(enLoc.BUTTON_DELETE);
+            expect(delButton.text()).toBe(enLoc.BUTTON_DELETE);
+
             $translate.use("ru");
             scope.$digest();
-            expect(delButton.text()).toContain(ruLoc.BUTTON_DELETE);
+            expect(delButton.text()).toBe(ruLoc.BUTTON_DELETE);
         });
     });
 });

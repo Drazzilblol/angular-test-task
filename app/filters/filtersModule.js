@@ -1,5 +1,4 @@
-
-let angular = require("angular");
+"use strict";
 let numbersFilter = require("./numbersFilter");
 
 module.exports = angular.module("filters", [])

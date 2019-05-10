@@ -26,6 +26,6 @@
   },
   "scripts": {
     "build": "webpack",
-    "test": "karma start --reporters kjhtml karma.config.js"
+    "test": "karma start karma.config.js"
   }
 }

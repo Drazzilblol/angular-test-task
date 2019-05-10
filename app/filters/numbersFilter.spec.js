@@ -1,25 +1,25 @@
 "use strict";
 require("./filtersModule");
 
-beforeEach(angular.mock.module("filters"));
+beforeEach(angular.mock.module("listApp"));
 
-describe("number filter", () => {
+describe("number filter", function () {
 
     let $filter;
 
-    beforeEach(inject((_$filter_) => {
+    beforeEach(inject(function (_$filter_) {
             $filter = _$filter_;
         })
     );
 
-    it("should convert string with numbers and letters to string with only numbers", () => {
-        expect($filter("numbersFilter")("a1b2c3")).toEqual("123");
+    it("should convert string with numbers and letters to string with only numbers", function () {
+        expect($filter("numbersFilter")("a1b2c3")).toBe("123");
     });
-    it("should return message if string does not contain numbers", () => {
-        expect($filter("numbersFilter")("abc")).toEqual("MESSAGE");
+    it("should return message if string does not contain numbers", function () {
+        expect($filter("numbersFilter")("abc")).toBe("MESSAGE");
     });
-    it("should return message if string is empty", () => {
-        expect($filter("numbersFilter")("")).toEqual("MESSAGE");
+    it("should return message if string is empty", function () {
+        expect($filter("numbersFilter")("")).toBe("MESSAGE");
     });
 
 });

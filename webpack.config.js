@@ -1,7 +1,7 @@
 let CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: './app/app.js',
+    entry:'./app/app.js',
     output: {
         filename: 'app.bundle.js'
     },
@@ -16,7 +16,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
-            }
+            },
         ]
     },
     plugins:

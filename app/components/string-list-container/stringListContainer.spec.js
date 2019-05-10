@@ -1,46 +1,44 @@
 "use strict";
-require("../componentsModule");
 
 describe("string list container", function () {
-    let $compile;
     let scope;
     let element;
 
-    beforeEach(angular.mock.module("components", ($translateProvider) => {
-        $translateProvider.preferredLanguage("en");
-    }));
+    beforeEach(angular.mock.module("listApp"));
 
-    beforeEach(inject(($rootScope, _$compile_) => {
+    beforeEach(inject(($rootScope, $compile) => {
         scope = $rootScope.$new();
-        $compile = _$compile_;
-        element = angular.element("<strings-list-container/>");
-        element = $compile(element)(scope);
+        element = $compile(angular.element("<strings-list-container/>"))(scope);
     }));
 
-    describe("string list container component", function () {
+    describe("component", function () {
 
         it('check add item', function () {
             let testString = "12345";
             let stringAdd = element.find("string-add");
+
             stringAdd.find("input")
                 .val(testString)
                 .triggerHandler("input");
             stringAdd.find("button")
                 .triggerHandler("click");
             expect(element.find("li")
-                .text()).toContain(testString);
+                .find("span")
+                .text())
+                .toBe(testString);
         });
 
         it('check delete item', function () {
-            let testStrings = ["12345"];
             let resultString = "12345";
-            scope.strings = testStrings;
+            scope.strings = [resultString];
+
             scope.$digest();
             element.find("li")
                 .find("button")
                 .triggerHandler("click");
             expect(element.find("li")
-                .text()).not.toContain(resultString);
+                .find("span")
+                .text()).not.toBe(resultString);
         });
     });
 });

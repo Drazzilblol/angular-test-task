@@ -13,8 +13,6 @@ module.exports = config => {
 
         webpack: webpackConf,
 
-        reporters: ['kjhtml'],
-
         port: 9876,
         colors: true,
         autoWatch: true,

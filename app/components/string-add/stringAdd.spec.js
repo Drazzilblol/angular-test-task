@@ -1,45 +1,35 @@
 "use strict";
-require("../componentsModule");
-describe("string add", () => {
-    beforeEach(angular.mock.module("components", ($translateProvider) => {
-            $translateProvider.translations("en", {
-                BUTTON_ADD: "Add",
-            });
-            $translateProvider.translations("ru", {
-                BUTTON_ADD: "Добавить",
-            });
-            $translateProvider.preferredLanguage("en");
-        }
-    ));
 
-    let $compile;
+describe("string add", function () {
+    beforeEach(angular.mock.module("listApp"));
+
     let scope;
     let $translate;
     let element;
 
-    beforeEach(inject(($rootScope, _$compile_, _$translate_) => {
+    beforeEach(inject(function ($rootScope, $compile, _$translate_) {
         scope = $rootScope.$new();
-        $compile = _$compile_;
         $translate = _$translate_;
         scope.onAddSpy = jasmine.createSpy("onAdd");
-        element = angular.element("<string-add on-add='onAddSpy(text)'/>");
-        element = $compile(element)(scope);
+        element = $compile(angular.element("<string-add on-add='onAddSpy(text)'/>"))(scope);
         scope.$digest();
     }));
 
-    describe("string add component", () => {
+    describe("component", function () {
 
-        it("check is add button disabled with empty input", () => {
+        it("check is add button disabled with empty input", function () {
             let button = element.find("button");
-            expect(button.attr("disabled")).toEqual("disabled");
+            expect(button.attr("disabled")).toBe("disabled");
+
             let input = element.find("input");
             input.val("          ")
                 .triggerHandler("input");
-            expect(button.attr("disabled")).toEqual("disabled");
+            expect(button.attr("disabled")).toBe("disabled");
         });
 
-        it("check add string", () => {
+        it("check add string", function () {
             let testString = "test";
+
             let input = element.find("input");
             input.val(testString).triggerHandler("input");
             element.find("button")
@@ -47,12 +37,13 @@ describe("string add", () => {
             expect(scope.onAddSpy).toHaveBeenCalledWith(testString);
         });
 
-        it("check localization", () => {
+        it("check localization", function () {
             let button = element.find("button");
-            expect(button.text()).toContain("Add");
+            expect(button.text().trim()).toBe("Add");
+
             $translate.use("ru");
             scope.$digest();
-            expect(button.text()).toContain("Добавить");
+            expect(button.text().trim()).toBe("Добавить");
         });
     });
 });
