@@ -1,4 +1,4 @@
-const webpackConf = require("./webpack.config");
+const webpackConf = require("./webpack.test");
 
 module.exports = config => {
     config.set({
@@ -8,7 +8,7 @@ module.exports = config => {
         files: ["./app/app.tests.js"],
 
         preprocessors: {
-            "./app/app.tests.js": ['webpack',],
+            "./app/app.tests.js": ['webpack']
         },
 
         webpack: webpackConf,
