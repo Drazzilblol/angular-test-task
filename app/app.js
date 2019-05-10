@@ -1,5 +1,5 @@
 "use strict";
-let angular = require("angular");
+
 require("angular-ui-bootstrap");
 require("bootstrap-css-only/css/bootstrap.min.css");
 let config = require("./appConfig");
