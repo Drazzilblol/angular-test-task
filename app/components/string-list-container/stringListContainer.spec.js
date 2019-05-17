@@ -27,10 +27,7 @@ describe("string list container", function () {
                 .triggerHandler("input");
             stringAdd.find("button")
                 .triggerHandler("click");
-            expect(element.find("li")
-                .find("span")
-                .text())
-                .toBe(testString);
+            expect(element.find("li").eq(0).find("span").text()).toBe(testString);
         });
 
         it('check delete item', function () {
@@ -39,11 +36,10 @@ describe("string list container", function () {
 
             scope.$digest();
             element.find("li")
+                .eq(0)
                 .find("button")
                 .triggerHandler("click");
-            expect(element.find("li")
-                .find("span")
-                .text()).not.toBe(resultString);
+            expect(element.find("li").eq(0).find("span").text()).not.toBe(resultString);
         });
     });
 });

@@ -31,8 +31,7 @@ describe("language", function () {
             expect(dialogDomElement.querySelector(".modal-title").textContent).toBe(english.LANGUAGE_MODAL.MESSAGE);
             expect(dialogDomElement.querySelector(".btn-secondary").textContent).toBe(english.LANGUAGE_MODAL.CANCEL);
             expect(dialogDomElement.querySelector(".btn-primary").textContent).toBe(english.LANGUAGE_MODAL.OK);
-            expect(languageSelect.textContent).toContain(english.LANGUAGES.en);
-            expect(languageSelect.textContent).toContain(english.LANGUAGES.ru);
+            expect(languageSelect.options[languageSelect.selectedIndex].text).toBe(english.LANGUAGES.en);
 
             angular.element(languageSelect)
                 .val("ru")
@@ -47,7 +46,7 @@ describe("language", function () {
             let langButton = element.find("button")
                 .triggerHandler("click");
             scope.$digest();
-            let dialogDomElement = document.querySelector(".modal-content");
+            let dialogDomElement = document.querySelector(".modal-dialog");
             let languageSelect = dialogDomElement.getElementsByTagName("select")[0];
             angular.element(languageSelect)
                 .val("ru")
@@ -57,15 +56,6 @@ describe("language", function () {
 
             scope.$digest();
             expect(langButton.text()).toBe(russian.BUTTON_LANGUAGE);
-
-            langButton.triggerHandler("click");
-            scope.$digest();
-
-            expect(dialogDomElement.querySelector(".modal-title").textContent).toBe(russian.LANGUAGE_MODAL.MESSAGE);
-            expect(dialogDomElement.querySelector(".btn-secondary").textContent).toBe(russian.LANGUAGE_MODAL.CANCEL);
-            expect(dialogDomElement.querySelector(".btn-primary").textContent).toBe(russian.LANGUAGE_MODAL.OK);
-            expect(languageSelect.textContent).toContain(russian.LANGUAGES.en);
-            expect(languageSelect.textContent).toContain(russian.LANGUAGES.ru);
         });
     });
 });

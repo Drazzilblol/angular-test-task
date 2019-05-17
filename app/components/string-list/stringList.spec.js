@@ -1,17 +1,13 @@
 "use strict";
 
+import english from "../../locales/locale-en";
+import russian from "../../locales/locale-ru";
+
 describe("string list", function () {
     let scope;
     let $translate;
     let element;
-    let enLoc = {
-        MESSAGE: "String does not contains numbers",
-        BUTTON_DELETE: "Delete",
-    };
-    let ruLoc = {
-        MESSAGE: "Строка не содержит цифры",
-        BUTTON_DELETE: "Удалить",
-    };
+
 
     beforeEach(angular.mock.module("listApp"));
 
@@ -36,9 +32,7 @@ describe("string list", function () {
             scope.strings = testStrings;
 
             scope.$digest();
-            expect(element.find("li")
-                .find("span")
-                .text()).toBe(resultString);
+            expect(element.find("li").find("span").text()).toBe(resultString);
         });
 
         it("check items deleting", function () {
@@ -46,10 +40,8 @@ describe("string list", function () {
             scope.strings = [resultString];
 
             scope.$digest();
-            let firstElement = element.find("li");
-            expect(firstElement
-                .find("span")
-                .text()).toBe(resultString);
+            let firstElement = element.find("li").eq(0);
+            expect(firstElement.find("span").text()).toBe(resultString);
 
             firstElement.find("button")
                 .triggerHandler("click");
@@ -57,25 +49,19 @@ describe("string list", function () {
 
             scope.strings.splice(0, 1);
             scope.$digest();
-            expect(element.find("li")
-                .find("span")
-                .text()).not.toBe(resultString);
+            expect(element.find("li").eq(0).find("span").text()).not.toBe(resultString);
         });
 
         it("check string without numbers", function () {
             scope.strings = ["test"];
 
             scope.$digest();
-            let firstElement = element.find("li");
-            expect(firstElement
-                .find("span")
-                .text()).toBe(enLoc.MESSAGE);
+            let firstElement = element.find("li").eq(0);
+            expect(firstElement.find("span").text()).toBe(english.MESSAGE);
 
             $translate.use("ru");
             scope.$digest();
-            expect(firstElement
-                .find("span")
-                .text()).toBe(ruLoc.MESSAGE);
+            expect(firstElement.find("span").text()).toBe(russian.MESSAGE);
         });
 
         it("check delete button localization", function () {
@@ -83,13 +69,14 @@ describe("string list", function () {
 
             scope.$digest();
             let delButton = element.find("li")
+                .eq(0)
                 .find("button")
                 .triggerHandler("click");
-            expect(delButton.text()).toBe(enLoc.BUTTON_DELETE);
+            expect(delButton.text()).toBe(english.BUTTON_DELETE);
 
             $translate.use("ru");
             scope.$digest();
-            expect(delButton.text()).toBe(ruLoc.BUTTON_DELETE);
+            expect(delButton.text()).toBe(russian.BUTTON_DELETE);
         });
     });
 });

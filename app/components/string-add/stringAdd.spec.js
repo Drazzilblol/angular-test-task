@@ -1,5 +1,8 @@
 "use strict";
 
+import english from "../../locales/locale-en";
+import russian from "../../locales/locale-ru";
+
 describe("string add", function () {
     beforeEach(angular.mock.module("listApp"));
 
@@ -45,11 +48,11 @@ describe("string add", function () {
 
         it("check localization", function () {
             let button = element.find("button");
-            expect(button.text().trim()).toBe("Add");
+            expect(button.text().trim()).toBe(english.BUTTON_ADD);
 
             $translate.use("ru");
             scope.$digest();
-            expect(button.text().trim()).toBe("Добавить");
+            expect(button.text().trim()).toBe(russian.BUTTON_ADD);
         });
     });
 });
