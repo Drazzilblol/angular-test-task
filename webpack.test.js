@@ -1,5 +1,6 @@
 let webpack = require('webpack');
 module.exports = {
+    mode: "development",
     module: {
         rules: [
             {

@@ -5,6 +5,7 @@ module.exports = {
     output: {
         filename: 'app.bundle.js'
     },
+    mode: "development",
     module: {
         rules: [
             {
