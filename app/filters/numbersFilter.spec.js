@@ -1,7 +1,6 @@
 "use strict";
-require("./filtersModule");
 
-beforeEach(angular.mock.module("listApp"));
+beforeEach(angular.mock.module("filters"));
 
 describe("number filter", function () {
 
@@ -11,6 +10,10 @@ describe("number filter", function () {
             $filter = _$filter_;
         })
     );
+
+    afterAll(function () {
+        $filter = null;
+    });
 
     it("should convert string with numbers and letters to string with only numbers", function () {
         expect($filter("numbersFilter")("a1b2c3")).toBe("123");

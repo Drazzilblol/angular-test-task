@@ -1,6 +1,6 @@
 "use strict";
-let numbersFilter = require("./numbersFilter");
+import numbersFilter from "./numbersFilter";
 
-module.exports = angular.module("filters", [])
+export default angular.module("filters", [])
     .filter("numbersFilter", numbersFilter);
 

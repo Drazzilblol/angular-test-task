@@ -1,11 +1,10 @@
 "use strict";
+import languages from "./components/language/languages.js";
 
-let english = require("./locales/locale-en");
-let russian = require("./locales/locale-ru");
+import english from "./locales/locale-en";
+import russian from "./locales/locale-ru";
 
-let languages = require("./components/language/languages.js");
-
-module.exports = function ($translateProvider) {
+export default function ($translateProvider) {
     $translateProvider.translations("en", english);
     $translateProvider.translations("ru", russian);
     $translateProvider.preferredLanguage(languages.defaultLanguage);

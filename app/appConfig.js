@@ -1,8 +1,8 @@
 "use strict";
 
-let languages = require("./components/language/languages.js");
+import languages from "./components/language/languages.js";
 
-module.exports = function ($translateProvider) {
+export default function ($translateProvider) {
 
     $translateProvider
         .useStaticFilesLoader({

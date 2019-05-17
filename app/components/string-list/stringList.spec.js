@@ -22,6 +22,12 @@ describe("string list", function () {
         element = $compile(angular.element("<strings-list on-delete='onDeleteSpy(index)' strings='strings'/>"))(scope);
     }));
 
+    afterAll(function () {
+        scope = null;
+        element = null;
+        $translate = null;
+    });
+
     describe("component", function () {
 
         it("check string with numbers", function () {

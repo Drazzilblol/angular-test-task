@@ -1,14 +1,14 @@
 "use strict";
 
-require("angular-ui-bootstrap");
-require("bootstrap-css-only/css/bootstrap.min.css");
-let config = require("./appConfig");
-require("./filters/filtersModule");
-require("./components/componentsModule");
-require("angular-translate");
-require("angular-translate-loader-static-files");
+import "angular-ui-bootstrap";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import config from "./appConfig";
+import "./filters/filtersModule";
+import "./components/componentsModule";
+import "angular-translate";
+import "angular-translate-loader-static-files";
 
-require("./app.css");
+import "./app.css";
 
 angular.module("listApp", ["filters", "components", "ui.bootstrap", "pascalprecht.translate"])
     .config(["$translateProvider", config]);

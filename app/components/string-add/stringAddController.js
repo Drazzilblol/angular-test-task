@@ -1,8 +1,9 @@
 "use strict";
+import template from "./stringAddTemplate.html"
 
-module.exports = {
+export default {
     bindings: {
         onAdd: "&",
     },
-    template: require("./stringAddTemplate.html"),
+    template: template,
 };

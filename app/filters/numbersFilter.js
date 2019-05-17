@@ -1,7 +1,7 @@
 "use strict";
 
-module.exports = function numbersFilter() {
-    return function (input) {
+export default function numbersFilter() {
+    return input => {
         if (typeof input !== "string" || input === "") return "MESSAGE";
 
         let filteredArray = input.split("")

@@ -15,6 +15,12 @@ describe("string add", function () {
         scope.$digest();
     }));
 
+    afterAll(function () {
+        scope = null;
+        element = null;
+        $translate = null;
+    });
+
     describe("component", function () {
 
         it("check is add button disabled with empty input", function () {

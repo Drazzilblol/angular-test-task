@@ -1,17 +1,20 @@
 "use strict";
+import languages from "./languages.js";
+import template from "./languageTemplate.html"
+import dialogController from "./dialog/languageDialogController";
+import dialogTemplate from "./dialog/languageDialogTemplate.html"
 
-module.exports = {
-    template: require("./languageTemplate.html"),
+export default {
+    template: template,
     controller: function languageController($translate, $uibModal) {
-        let languages = require("./languages.js");
 
         this.open = function () {
 
             $uibModal.open({
                 animation: false,
-                template: require("./languageDialogTemplate.html"),
+                template: dialogTemplate,
                 controllerAs: "ctrl",
-                controller: require("./languageDialogController"),
+                controller: dialogController,
                 resolve: {
                     languages: function () {
                         return languages;

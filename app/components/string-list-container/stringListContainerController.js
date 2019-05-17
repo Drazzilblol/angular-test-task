@@ -1,7 +1,8 @@
 "use strict";
+import template from "./stringListContainerTemplate.html"
 
-module.exports = {
-    template: require("./stringListContainerTemplate.html"),
+export default {
+    template: template,
     controller:
         function stringListController() {
             this.strings = [];

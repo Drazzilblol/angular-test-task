@@ -1,6 +1,6 @@
-require("./app.js");
-require("angular-mocks");
-let config = require("./testsConfig");
+import "./app.js";
+import "angular-mocks";
+import config from "./testsConfig";
 
 angular.module("listApp")
     .config(["$translateProvider", config]);

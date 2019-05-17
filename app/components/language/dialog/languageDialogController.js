@@ -1,14 +1,14 @@
 "use strict";
 
-module.exports = function ($uibModalInstance, languages, $translate) {
+export default function ($uibModalInstance, languages, $translate) {
     this.languages = languages.languagesList;
     this.selected = $translate.use();
 
-    this.ok = function () {
+    this.ok = () => {
         $uibModalInstance.close(this.selected);
     };
 
-    this.cancel = function () {
+    this.cancel = () => {
         $uibModalInstance.close();
     };
 };

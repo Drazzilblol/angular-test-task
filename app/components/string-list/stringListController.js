@@ -1,9 +1,10 @@
 "use strict";
+import template from "./stringListTemplate.html"
 
-module.exports = {
+export default {
     bindings: {
         strings: "<",
         onDelete: "&",
     },
-    template: require("./stringListTemplate.html"),
+    template: template,
 };

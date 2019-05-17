@@ -11,6 +11,11 @@ describe("string list container", function () {
         element = $compile(angular.element("<strings-list-container/>"))(scope);
     }));
 
+    afterAll(function () {
+        scope = null;
+        element = null;
+    });
+
     describe("component", function () {
 
         it('check add item', function () {

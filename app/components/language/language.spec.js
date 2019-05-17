@@ -1,7 +1,7 @@
 "use strict";
 
-let english = require("../../locales/locale-en");
-let russian = require("../../locales/locale-ru");
+import english from "../../locales/locale-en";
+import russian from "../../locales/locale-ru";
 
 describe("language", function () {
     let scope;
@@ -14,6 +14,11 @@ describe("language", function () {
         element = $compile(angular.element("<language/>"))(scope);
         scope.$digest();
     }));
+
+    afterAll(function () {
+        scope = null;
+        element = null;
+    });
 
     describe("component", function () {
         it("check language select cancel", function () {
@@ -28,6 +33,7 @@ describe("language", function () {
             expect(dialogDomElement.querySelector(".btn-primary").textContent).toBe(english.LANGUAGE_MODAL.OK);
             expect(languageSelect.textContent).toContain(english.LANGUAGES.en);
             expect(languageSelect.textContent).toContain(english.LANGUAGES.ru);
+
             angular.element(languageSelect)
                 .val("ru")
                 .triggerHandler("change");
